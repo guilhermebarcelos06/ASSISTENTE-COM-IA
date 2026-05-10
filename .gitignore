@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Audio temp files
+*.mp3
+*.wav
+
+# Local config
+config.json
