@@ -1,163 +1,126 @@
-🤖 J.A.R.V.I.S. Core System
+<h1 align="center">🤖 J.A.R.V.I.S. Core System</h1>
 
-Assistente Virtual Inteligente com Automação de Sistema e Controlo via Cloud
+<p align="center">
+  <strong>Assistente Virtual Inteligente com Automação de Sistema e Controlo via Cloud</strong>
+</p>
 
-Funcionalidades •
-Arquitetura •
-Instalação •
-Como Utilizar
+<p align="center">
+  O J.A.R.V.I.S. Core System é uma aplicação de desktop para Windows desenvolvida em Python. Inspirado no assistente do Homem de Ferro, este projeto combina a potência dos Modelos de Linguagem de Grande Escala (LLMs) com o controlo nativo do sistema operativo, permitindo uma interação natural por voz e a capacidade de executar ações complexas tanto localmente como remotamente através da nuvem.
+</p>
 
-📌 Visão Geral
+<hr />
 
-O J.A.R.V.I.S. Core System é uma aplicação de desktop para Windows desenvolvida em Python. Inspirado no assistente do Homem de Ferro, este projeto combina a potência dos Modelos de Linguagem de Grande Escala (LLMs) com o controlo nativo do sistema operativo, permitindo uma interação natural por voz e a capacidade de executar ações complexas tanto localmente como remotamente através da nuvem.
+<h2>📋 Índice</h2>
+<ul>
+  <li><a href="#-funcionalidades">Funcionalidades</a></li>
+  <li><a href="#-arquitetura-e-tecnologias">Arquitetura e Tecnologias</a></li>
+  <li><a href="#-instalação-e-configuração">Instalação e Configuração</a></li>
+  <li><a href="#-como-utilizar">Como Utilizar</a></li>
+  <li><a href="#-estrutura-de-ficheiros">Estrutura de Ficheiros</a></li>
+  <li><a href="#-privacidade-e-segurança">Privacidade e Segurança</a></li>
+</ul>
 
-✨ Funcionalidades
+<hr />
 
-🗣️ Comunicação por Voz Natural:
+<h2>✨ Funcionalidades</h2>
 
-Escuta passiva em segundo plano com deteção de wake words (ex: "Jarvis", "Computador").
+<h3>🗣️ Comunicação por Voz Natural</h3>
+<ul>
+  <li>Escuta passiva em segundo plano com deteção de wake words (ex: "Jarvis", "Computador").</li>
+  <li>Respostas áudio de alta qualidade utilizando vozes neurais da Microsoft (<code>edge-tts</code>).</li>
+</ul>
 
-Respostas áudio de alta qualidade utilizando vozes neurais da Microsoft (edge-tts).
+<h3>🧠 Cérebro de Inteligência Artificial</h3>
+<ul>
+  <li>Integrado com a API <strong>Google Gemini 2.5 Flash</strong> para contexto, raciocínio lógico e respostas rápidas e humanizadas.</li>
+  <li>Capacidade de pesquisar na web em tempo real (Grounding) para dados atualizados (clima, cotações, etc.).</li>
+</ul>
 
-🧠 Cérebro de Inteligência Artificial:
+<h3>💻 Controlo do Sistema Operativo (Windows)</h3>
+<ul>
+  <li>Abrir/Fechar aplicações (Spotify, Chrome, Bloco de Notas, Calculadora, etc.).</li>
+  <li>Realizar pesquisas automáticas no navegador.</li>
+  <li>Consultar o estado do armazenamento local.</li>
+</ul>
 
-Integrado com a API Google Gemini 2.5 Flash para contexto, raciocínio lógico e respostas rápidas e humanizadas.
+<h3>☁️ Sincronização e Controlo Remoto</h3>
+<ul>
+  <li>Autenticação segura de utilizadores gerida pelo <strong>Supabase</strong>.</li>
+  <li>Registo de dispositivos e base de dados em tempo real (Realtime Database).</li>
+  <li><strong>Comandos à distância:</strong> Permite que uma interface web/externa envie comandos que o computador executa instantaneamente.</li>
+</ul>
 
-Capacidade de pesquisar na web em tempo real (Grounding) para dados atualizados (clima, cotações, etc.).
+<h3>🖥️ Interface Futurista (GUI)</h3>
+<ul>
+  <li>Desenvolvida com <code>customtkinter</code>, apresenta um design "Hacker/Cyberpunk" escuro com um núcleo central animado que reage aos estados do assistente (Ouvindo, Processando, Ocioso).</li>
+</ul>
 
-💻 Controlo do Sistema Operativo (Windows):
+<hr />
 
-Abrir/Fechar aplicações (Spotify, Chrome, Bloco de Notas, Calculadora, etc.).
+<h2>🏗 Arquitetura e Tecnologias</h2>
+<p>O projeto está estruturado em módulos independentes para facilitar a escalabilidade:</p>
+<ul>
+  <li><strong>Frontend (GUI):</strong> <code>customtkinter</code> e <code>tkinter</code> (Canvas).</li>
+  <li><strong>IA & LLM:</strong> <code>google-genai</code> (SDK Oficial da Google).</li>
+  <li><strong>Processamento de Áudio:</strong> <code>sounddevice</code>, <code>numpy</code>, <code>scipy</code> (Captação e VAD), <code>SpeechRecognition</code> (STT), <code>edge-tts</code> (TTS).</li>
+  <li><strong>Backend as a Service (BaaS):</strong> <code>supabase</code> (Autenticação, PostgreSQL, Realtime WebSockets).</li>
+  <li><strong>Integração OS:</strong> Subprocessos do Windows (<code>os</code>, <code>subprocess</code>, <code>webbrowser</code>, <code>shutil</code>).</li>
+</ul>
 
-Realizar pesquisas automáticas no navegador.
+<hr />
 
-Consultar o estado do armazenamento local.
+<h2>🚀 Instalação e Configuração</h2>
 
-☁️ Sincronização e Controlo Remoto:
+<h3>1. Pré-requisitos</h3>
+<ul>
+  <li>Sistema Operativo Windows (necessário para os comandos nativos de áudio e automação de janelas).</li>
+  <li>Python 3.8 ou superior.</li>
+  <li>Chaves de API do Google AI Studio e do Supabase.</li>
+</ul>
 
-Autenticação segura de utilizadores gerida pelo Supabase.
-
-Registo de dispositivos e base de dados em tempo real (Realtime Database).
-
-Comandos à distância: Permite que uma interface web/externa envie comandos que o computador executa instantaneamente.
-
-🖥️ Interface Futurista (GUI):
-
-Desenvolvida com customtkinter, apresenta um design "Hacker/Cyberpunk" escuro com um núcleo central animado que reage aos estados do assistente (Ouvindo, Processando, Ocioso).
-
-🏗 Arquitetura e Tecnologias
-
-O projeto está estruturado em módulos independentes para facilitar a escalabilidade:
-
-Frontend (GUI): customtkinter e tkinter (Canvas).
-
-IA & LLM: google-genai (SDK Oficial da Google).
-
-Processamento de Áudio: sounddevice, numpy, scipy (Captação e VAD), SpeechRecognition (STT), edge-tts (TTS), ctypes.windll (Reprodução de áudio nativa).
-
-Backend as a Service (BaaS): supabase (Autenticação, PostgreSQL, Extensão pgvector, Realtime WebSockets).
-
-Integração OS: Subprocessos do Windows (os, subprocess, webbrowser, shutil).
-
-🚀 Instalação e Configuração
-
-1. Pré-requisitos
-
-Sistema Operativo Windows (necessário para os comandos nativos de áudio e automação de janelas).
-
-Python 3.8 ou superior.
-
-Chaves de API do Google AI Studio e do Supabase.
-
-2. Clonar o Repositório e Preparar o Ambiente
-
-# Clonar o repositório
-git clone [https://github.com/o-seu-utilizador/assistente-com-ia.git](https://github.com/o-seu-utilizador/assistente-com-ia.git)
+<h3>2. Clonar o Repositório e Preparar o Ambiente</h3>
+<pre><code># Clonar o repositório
+git clone https://github.com/o-seu-utilizador/assistente-com-ia.git
 cd assistente-com-ia/jarvis_app
 
-# Criar e ativar um ambiente virtual (Recomendado)
+# Criar e ativar um ambiente virtual
 python -m venv venv
 venv\Scripts\activate
+</code></pre>
 
-
-3. Instalar Dependências
-
-Instale as dependências base e os pacotes de processamento de áudio/IA:
-
-pip install -r requirements.txt
+<h3>3. Instalar Dependências</h3>
+<pre><code>pip install -r requirements.txt
 pip install sounddevice numpy scipy SpeechRecognition edge-tts google-genai
+</code></pre>
 
-
-4. Configurar as Variáveis de Ambiente
-
-Crie um ficheiro .env na raiz da pasta jarvis_app e preencha com as suas credenciais:
-
-Variável
-
-Descrição
-
-GEMINI_API_KEY
-
-Chave gerada no Google AI Studio.
-
-SUPABASE_URL
-
-URL do seu projeto no painel do Supabase.
-
-SUPABASE_KEY
-
-Chave "anon/public" do seu projeto Supabase.
-
-Exemplo do .env:
-
-GEMINI_API_KEY=AIzaSySuaChaveAqui...
-SUPABASE_URL=[https://seuid.supabase.co](https://seuid.supabase.co)
+<h3>4. Configurar as Variáveis de Ambiente</h3>
+<p>Crie um ficheiro <code>.env</code> na raiz da pasta <code>jarvis_app</code> e preencha com as suas credenciais:</p>
+<pre><code>GEMINI_API_KEY=AIzaSySuaChaveAqui...
+SUPABASE_URL=https://seuid.supabase.co
 SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6...
+</code></pre>
 
+<h3>5. Configurar a Base de Dados (Supabase)</h3>
+<ol>
+  <li>Aceda ao seu painel no Supabase.</li>
+  <li>Navegue até ao SQL Editor.</li>
+  <li>Copie o conteúdo do ficheiro <code>jarvis_supabase_schema.sql</code> fornecido na raiz do projeto e execute-o.</li>
+</ol>
 
-5. Configurar a Base de Dados (Supabase)
+<hr />
 
-Aceda ao seu painel no Supabase.
+<h2>🕹️ Como Utilizar</h2>
+<p>Inicie a aplicação com o comando:</p>
+<pre><code>python main.py</code></pre>
 
-Navegue até ao SQL Editor.
+<p><strong>Primeiro Acesso:</strong> Clique em "CREATE NEW IDENTITY" para criar a sua conta ou faça login. Conceda permissão de acesso ao microfone.</p>
+<p><strong>Interação:</strong> Diga a palavra de ativação: "Jarvis..." seguida do seu pedido, ou clique no botão "🎤 INICIALIZAR".</p>
 
-Copie o conteúdo do ficheiro jarvis_supabase_schema.sql fornecido na raiz do projeto e execute-o. Isto criará as tabelas de perfis, dispositivos, comandos e ativará as funcionalidades em tempo real (Realtime).
+<hr />
 
-🕹️ Como Utilizar
-
-Iniciar a Aplicação:
-Certifique-se de que o ambiente virtual está ativo e execute:
-
-python main.py
-
-
-Primeiro Acesso:
-
-Na interface inicial (Terminal de Acesso), clique em "CREATE NEW IDENTITY" para criar a sua conta (ou faça login se já a tiver).
-
-Conceda permissão de acesso ao microfone.
-
-Interação:
-
-O sistema entrará em estado de vigília ("AGUARDANDO").
-
-Diga a palavra de ativação: "Jarvis..." seguida do seu pedido, ou clique no botão "🎤 INICIALIZAR".
-
-Exemplos de Comandos:
-
-"Jarvis, abre o Spotify."
-
-"Podes fechar o bloco de notas?"
-
-"Faz uma pesquisa por receitas de bacalhau."
-
-"Qual é o estado do meu armazenamento no disco C?"
-
-"Qual é a cotação do Euro hoje?" (O Gemini pesquisa no Google e responde-lhe em voz).
-
-📂 Estrutura de Ficheiros
-
-📁 ASSISTENTE-COM-IA/
+<h2>📂 Estrutura de Ficheiros</h2>
+<pre><code>
+ASSISTENTE-COM-IA/
 ├── 📄 jarvis_supabase_schema.sql  # Estrutura da DB para o Supabase
 └── 📁 jarvis_app/
     ├── 📄 main.py                 # Interface gráfica principal e Core Loop
@@ -169,10 +132,12 @@ Exemplos de Comandos:
         ├── 📄 os_controller.py    # Integração de automação com o Windows
         ├── 📄 settings_manager.py # Gestão do config.json local
         └── 📄 supabase_client.py  # Conexão à Cloud, Auth e Listener em tempo real
+</code></pre>
 
+<hr />
 
-🛡️ Privacidade e Segurança
-
-Processamento de Áudio: As capturas de áudio para deteção de comandos e conversão de texto-para-fala (TTS) geram ficheiros temporários que são eliminados automaticamente pelo sistema após a sua utilização.
-
-Segurança Supabase: O esquema SQL inclui políticas Row Level Security (RLS), garantindo que apenas o seu utilizador pode aceder aos seus dispositivos, mensagens e comandos remotos.
+<h2>🛡️ Privacidade e Segurança</h2>
+<ul>
+  <li><strong>Processamento de Áudio:</strong> As capturas de áudio geram ficheiros temporários que são eliminados automaticamente.</li>
+  <li><strong>Segurança Supabase:</strong> O esquema inclui políticas Row Level Security (RLS) para garantir a privacidade dos dados.</li>
+</ul>
